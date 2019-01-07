@@ -1,7 +1,7 @@
 package math;
 
 public class Vec2 {
-	private double[] coords;
+	public double[] coords;
 	
 	public Vec2(double x, double y) {
 		coords = new double[2];
@@ -84,5 +84,13 @@ public class Vec2 {
 	
 	public Vec2 rotate(double theta) {
 		return new Vec2(magnitude() * Math.cos(theta), magnitude() * Math.sin(theta));
+	}
+	
+	public double angleBetween(Vec2 v) {
+		return Math.atan2(coords[1]-v.getY(), coords[0]-v.getX());
+	}
+	
+	public Vec3 to3D() {
+		return new Vec3(getX(),getY(),0);
 	}
 }
